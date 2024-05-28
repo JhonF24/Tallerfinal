@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.title{
+    text-align: center;
+    margin: 30px;
+}
+
+body{
+    background-color: black;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+#main_list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.box {
+    padding: 5px;
+    border: 1px dashed white;
+    width: 300px;
+}
+
+.box p span {
+    color: rgb(97, 97, 194);
+    text-transform: capitalize;
+}
+
