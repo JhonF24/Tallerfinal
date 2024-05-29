@@ -5,7 +5,7 @@ import db from "./nuevoproyecto/database/db.js";
 // import db from "./database/db.js";
 
 const app = express();
-const port = process.env.PORT || 3006;
+const port = process.env.PORT || 17480;
 
 // bd conection
 (async () => {

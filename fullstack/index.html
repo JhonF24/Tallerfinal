@@ -7,27 +7,38 @@
     <title>MyEcoStore</title>
 </head>
 <body>
+  <div class="container">
     <h1 class="title">My Eco Store</h1>
 
-    <div id="delete-product">
-        <h1>Eliminar producto</h1>
+    <div class="card delete-product">
+        <h2>Eliminar producto</h2>
         <form id="delete-product-form">
-          <label for="product-id">ID del producto:</label>
-          <input type="number" id="product-id" name="product-id" required>
-          <button type="submit">Eliminar producto</button>
+            <label for="product-id">ID del producto:</label>
+            <input type="number" id="product-id" name="product-id" required>
+            <button type="submit">Eliminar producto</button>
         </form>
-      </div>
-    
-      <div id="create-product">
-        <h1>Crear producto</h1>
+    </div>
+
+    <div class="card create-product">
+        <h2>Crear producto</h2>
         <form id="product-form">
-          <label for="product-name">Nombre del producto:</label>
-          <input type="text" id="product-name" name="product-name" required>
-          <label for="product-category">Categoría del producto:</label>
-          <input type="text" id="product-category" name="product-category" required>
-          <label for="product-price">Precio del producto:</label>
-          <input type="number" id="product-price" name="product-price" step="0.01" required>
-          <button type="submit">Crear producto</button>
-      <script src="app.js"></script>
+            <label for="product-name">Nombre del producto:</label>
+            <input type="text" id="product-name" name="product-name" required>
+            <label for="product-category">Categoría del producto:</label>
+            <input type="text" id="product-category" name="product-category" required>
+            <label for="product-price">Precio del producto:</label>
+            <input type="number" id="product-price" name="product-price" step="0.01" required>
+            <button type="submit">Crear producto</button>
+        </form>
+    </div>
+
+    <div class="products-list">
+        <h2>Lista de productos</h2>
+        <div id="main_list"></div>
+    </div>
+
+    <script src="app.js"></script>
+
+</div>
 </body>
 </html>  

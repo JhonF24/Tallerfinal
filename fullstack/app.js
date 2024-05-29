@@ -1,40 +1,41 @@
-const URL_BASE = "http://localhost:3006/";
+const URL_BASE = "http://localhost:17480";
 const mainDiv = document.querySelector("#main_list");
 
-const getproducts = async () =>{
-    try{
+const getProducts = async () => {
+  try {
     const response = await fetch(`${URL_BASE}/products`);
     const { data } = await response.json();
-    let content = "";
-    for (const product of data){
-        content += `
-        <div class="box">
-            <p><spam>nombre:</spam>${product.name}</p>
-            <p><spam>categoria:</spam>${product.category}</p>
-            <p><spam>precio:</spam>${product.price}</p>
-
-        </div>
-        `;
-    }
-    mainDiv.innerHTML = content;
-
-    }catch (error){
-        console.log(error);
-    }
+    displayProducts(data);
+  } catch (error) {
+    console.log(error);
+  }
 };
 
+const displayProducts = (products) => {
+  let content = "";
+  for (const product of products) {
+    content += `
+      <div class="box">
+        <p><spam>Nombre:</spam>${product.name}</p>
+        <p><spam>Categoría:</spam>${product.category}</p>
+        <p><spam>Precio:</spam>${product.price}</p>
+      </div>
+    `;
+  }
+  mainDiv.innerHTML = content;
+};
 
-getproducts();
+getProducts();
 
-const form = document.getElementById('delete-product-form');
+const deleteProductForm = document.getElementById('delete-product-form');
 
-form.addEventListener('submit', async (event) => {
+deleteProductForm.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   const productId = document.getElementById('product-id').value;
 
   try {
-    const response = await fetch(`/products/${productId}`, {
+    const response = await fetch(`${URL_BASE}/products/${productId}`, {
       method: 'DELETE',
     });
 
@@ -42,6 +43,7 @@ form.addEventListener('submit', async (event) => {
 
     if (data.success) {
       alert('Producto eliminado exitosamente');
+      getProducts();
     } else {
       alert('Error al eliminar el producto');
     }
@@ -49,7 +51,6 @@ form.addEventListener('submit', async (event) => {
     alert('Error al enviar la solicitud');
   }
 });
-
 
 const createProductForm = document.getElementById('create-product-form');
 
@@ -81,7 +82,3 @@ createProductForm.addEventListener('submit', async (event) => {
     alert('Error al enviar la solicitud');
   }
 });
-
-getproducts();
-
-
